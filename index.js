@@ -574,10 +574,10 @@ app.get('/deploy2', (req, res) => {
   res.type('html').send(html);
 });
 
-let quickport = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
-app.listen(quickport, () => console.log(`Suhail Md Web Server listening on port http://localhost:${quickport}`));
-
-
+//let quickport = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Suhail Md Web Server listening on port http://0.0.0.0:${port}`);
+});
 
 app.get('/heroku', (req, res) => {
   res.sendFile('heroku.html', { root: 'public' });
