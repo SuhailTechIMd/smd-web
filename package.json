@@ -1,0 +1,30 @@
+{
+  "name": "suhail-web",
+  "version": "0.0.6",
+  "description": "A multi functional whatsapp bot Qr-Code Scanner.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@adiwajshing/keyed-db": "^0.2.4",
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "^6.5.0",
+    "axios": "^1.6.2",
+    "body-parser": "^1.20.2",
+    "child_process": "latest",
+    "express": "^4.18.2",
+    "fs-extra": "latest",
+    "node-cache": "^5.1.2",
+    "pastebin-js": "^1.0.6",
+    "path": "^0.12.7",
+    "pino": "^8.1.0",
+    "qr-image": "^3.2.0",
+    "qrcode": "^1.5.3",
+    "qrcode-terminal": "^0.12.0",
+    "request": "^2.88.2"
+  }
+}

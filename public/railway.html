@@ -1,0 +1,153 @@
+<html>
+    <head>
+        <link rel="icon" type="image/png" sizes="32x32" href="/../tmp/qr.png">
+        <link rel="stylesheet" type="text/css" href="/style2.css" />
+    </head>
+
+    <body>
+        <div class="login-box">
+            <h2>Please Enter Github Username</h2>
+            <form id="username" method="POST" action="/dmd">
+                <div class="user-box">
+                    <input type="text" id="name" name="username" required />
+                    <label>github username</label>
+                </div>
+                <a onclick="verify();">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                       HEROKU
+                </a>
+            </form>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+        <script type="text/javascript">
+          function generateGitHubLink(username) {
+    // Generates a GitHub link based on the provided username
+    return `https://github.com/${username}`;
+}
+
+async function checkRepository(username) {
+    // Checks if a GitHub repository exists for the provided username
+    try {
+        const response = await axios.get(`https://api.github.com/users/${username}`);
+        return response.data;
+    } catch (error) {
+        return null;
+    }
+}
+
+async function checkRepositoryAvailability(username) {
+    // Checks if the repository is available for forking
+    try {
+        await axios.get(`https://api.github.com/repos/${username}/Suhail-Md`);
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
+
+function redirectToFork(username) {
+    // Redirects to the GitHub page for forking the repository
+    location.replace(generateGitHubLink(username) + '/Suhail-Md/fork');
+}
+
+
+
+async function verify() {
+    try {
+        let username = document.getElementById('usernameInput').value.trim();
+        if (username.length === 0) {
+          //  alert('Please enter your GitHub username');
+            return;
+        }
+
+        const userData = await checkRepository(username);
+
+        if (userData && userData.login && userData.login !== 'SuhailTechInfo') {
+            const isRepositoryAvailable = await checkRepositoryAvailability(username);
+
+            if (isRepositoryAvailable) {
+                location.replace('https://railway.app/template/GZOvIe?referralCode=wVDLrh');
+            } else {
+                alert('Fork the repository first. Click the "OK" button to fork.');
+                redirectToFork(username);
+            }
+        } else if (userData.login === 'SuhailTechInfo') {
+            alert('Invalid Username: SuhailTechInfo');
+        } else {
+            alert('There\'s an Error. The site is currently offline.');
+        }
+    } catch (error) {
+        alert('An unexpected error occurred.');
+    }
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+           
+           /*function _0x249c(_0x37e51a,_0x30cc51){
+                const _0x413f07=_0x413f();
+                return _0x249c=function(_0x249cab,_0x4787da){
+                    _0x249cab=_0x249cab-0x19f;
+                    let _0x24f8c3=_0x413f07[_0x249cab];
+                    return _0x24f8c3;},_0x249c(_0x37e51a,_0x30cc51);
+                }
+                const _0x5726a5=_0x249c;
+                (function(_0x1a99aa,_0x260372){
+                    const _0x315d13=_0x249c,_0x2108a3=_0x1a99aa();
+                    while(!![]){
+                        try{
+                            const _0x525dc7=parseInt(_0x315d13(0x1a4))/0x1*(-parseInt(_0x315d13(0x1a2))/0x2)+-parseInt(_0x315d13(0x1a6))/0x3+-parseInt(_0x315d13(0x1b4))/0x4*(-parseInt(_0x315d13(0x1b2))/0x5)+-parseInt(_0x315d13(0x1b8))/0x6+parseInt(_0x315d13(0x1a3))/0x7*(parseInt(_0x315d13(0x1b1))/0x8)+parseInt(_0x315d13(0x1a5))/0x9+-parseInt(_0x315d13(0x1aa))/0xa*(-parseInt(_0x315d13(0x1b9))/0xb);if(_0x525dc7===_0x260372)break;else _0x2108a3['push'](_0x2108a3['shift']());}catch(_0x32282a){_0x2108a3['push'](_0x2108a3['shift']());}}}(_0x413f,0xa543d));let gitApi=_0x5726a5(0x19f),owner=_0x5726a5(0x1b7);function _0x413f(){const _0x4d9071=['Texh\x20:\x20','https://dashboard.heroku.com/new?template=https://github.com/','https://api.github.com','/Secktor-bot','/Suhail-Md','4vDSlrb','22211tDvPQR','474216VBxorX','507555QJvniX','922767WDPRaD','/users/','split','getElementById','72530asIWUZ','/repos/','There\x27s\x20an\x20Error,\x20Site\x20Currently\x20offline!','replace','Please\x20Put\x20Your\x20User\x20Name','https://github.com/','Invalid\x20Username','1032RzsiIS','395pVsoqB','name','50560EmjXcP','value','log','SuhailTechInfo','6979506ZRKWYt','2475ebqRJL','Fork\x20The\x20Repository\x20First.\x0aClick\x20The\x20\x27OK\x27\x20Button\x20To\x20Fork','length'];_0x413f=function(){return _0x4d9071;};return _0x413f();}async function verify(){const _0x4f156b=_0x5726a5;try{let _0x5e031c=document[_0x4f156b(0x1a9)](_0x4f156b(0x1b3))[_0x4f156b(0x1b5)];console[_0x4f156b(0x1b6)](_0x4f156b(0x1bc),_0x5e031c);if(_0x5e031c[_0x4f156b(0x1bb)]>0x0&&_0x5e031c!==owner){_0x5e031c=_0x5e031c[_0x4f156b(0x1a8)]('|')[0x0]['trim']();
+                            
+                            try{
+                                const {data:_0x3862be}=await axios(gitApi+_0x4f156b(0x1a7)+_0x5e031c);
+                            try{
+                                const _0x391ec1=await axios(gitApi+_0x4f156b(0x1ab)+_0x5e031c+_0x4f156b(0x1a1));}catch(_0x3bfc3a){
+                                try{
+                                    const _0x1fc8ee=await axios(gitApi+'/repos/'+_0x5e031c+_0x4f156b(0x1a0));
+                                }catch(_0x5296c4){
+                                    return alert(_0x4f156b(0x1ba)),location['replace'](_0x4f156b(0x1af)+owner+'/Suhail-Md/fork');
+                                }
+                                }
+                                location[_0x4f156b(0x1ad)]("https://railway.app/template/GZOvIe?referralCode=wVDLrh");
+                        
+                            }catch(_0x2b72df){
+                            alert(_0x4f156b(0x1b0));
+                        }
+                    }else _0x5e031c===owner&&alert(_0x4f156b(0x1ae));
+        }catch(_0x1358b5){alert(_0x4f156b(0x1ac));}}
+       */
+
+/*
+            async function verify() {
+                if (document.getElementById('name').value.length > 0) {
+                    let name = document.getElementById('name').value;
+                    console.log("\n\nNAME : " , name)
+                    try {
+                        const { data } = await axios(`https://api.github.com/users/\${document.getElementById('name').value}`);
+                        try {
+                            const repo = await axios(`https://api.github.com/repos/\${document.getElementById('name').value}/Secktor-bot`);
+                        } catch (e) {
+                            alert("Fork The Repository First.\\nClick The 'OK' Button To Fork");
+                            return location.replace('https://github.com/SuhailTechInfo/Secktor-bot/fork');
+                        }
+                        location.replace('https://railway.app/template/GZOvIe?referralCode=wVDLrh');
+                    } catch (e) { await console.log("\n\n\n\nERROR :" , e); alert('Invalid Username');    }
+                }
+            }
+            */
+        </script>
+    </body>
+ </html>
+

@@ -1,0 +1,94 @@
+<html>
+    <head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/tmp/qr.png">
+    <head>
+ 
+<style>
+	html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.items{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  height: 100vh;
+}
+.container{
+  height: 80px;
+  width: 250px;
+  background-color: #4b4bd1;
+  padding: 3px;
+  border-radius: 50px;
+  box-shadow: 0 0 20px 3px #4b4bd1;
+}
+.container:hover{
+  background: linear-gradient(red, green, blue);
+  animation: animation 1.5s linear infinite;
+}
+@keyframes animation{
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+button{
+  height: 80px;
+  width: 250px;
+  background-color: #000;
+  color: #4b4bd1;
+  border: 3px solid transparent;
+  border-radius: 50px;
+  letter-spacing: 9px;
+  font-size: 20px;
+}
+
+  </style>
+        <div class="items">  
+        <div class="container">
+        <button type="button" onclick="window.location.href='/qr.html'">GET QR</button>    
+        </div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<div class="items">  
+        <div class="container">
+        <button type="button" onclick="window.location.href='/heroku.html'">HEROKU</button>    
+        </div>
+	</div>
+	<br>
+	<br>
+	<br>
+  	<div class="items">  
+        <div class="container">
+        <button type="button" onclick="window.location.href='/replit.html'">REPLIT</button>    
+        </div>
+	</div>
+	<br>
+  <br>
+  <div class="items">  
+      <div class="container">
+      <button type="button" onclick="window.location.href='/railway.html'">RAILWAY</button>    
+      </div>
+  </div>
+  <br>
+	<br>
+	<br>
+	
