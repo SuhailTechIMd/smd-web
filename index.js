@@ -319,9 +319,6 @@ try{
 
 
 
-if (fs.existsSync('./auth_info_baileys')) {
-  fs.emptyDirSync(__dirname + '/auth_info_baileys');
-};
 
 
 
@@ -348,6 +345,10 @@ app.post('/process', (req, res) => {
 });
 
 app.use("/qr", (req, res) => {
+  if (fs.existsSync('./auth_info_baileys/creds.json')) {
+    fs.emptyDirSync(__dirname + '/auth_info_baileys');
+  };
+  
   //const queryName = req.query.name;
  //console.log("\n\n Req : ", req._parsedUrl.query)
   //console.log("\n\nsearch : ", req.originalUrl)
