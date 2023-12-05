@@ -575,7 +575,7 @@ app.get('/deploy2', (req, res) => {
 });
 
 //let quickport = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
-app.listen(port, '0.0.0.0', () => {
+app.listen(port, () => {
   console.log(`Suhail Md Web Server listening on port http://0.0.0.0:${port}`);
 });
 
